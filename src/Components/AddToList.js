@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './ShoppingList.css';
 import uuid from 'uuid';
-import {Grid,Row,Col} from 'react-bootstrap';
+import {Grid,Row,Col,Well,Panel} from 'react-bootstrap';
 
 class AddToList extends Component {
     constructor(){
@@ -36,29 +36,31 @@ class AddToList extends Component {
     return (
       <Grid>
           <Row>
-            <Col  xsOffset={2} md={8} mdOffset={5} >
-                <h5>Add new Item to Shopping List</h5>
+            <Col   md={8}  >
+               <Well><h5 className='center'>Add new Item to Shopping List</h5></Well> 
             </Col>
           </Row>
           <Row>
+              <Panel>
             <form inline onSubmit={this.handleSubmit.bind(this)}>
-                <Col xs={6} md={5} mdOffset={3} >
-                    {/* <label>Item</label><br/> */}
+                <Col xs={9} md={5} mdOffset={3} >
+                    <label>Item </label>
                     <input
                     type='text' ref="title"
-                    placeholder = "item"
+                    placeholder = "Name"
                     />
-                </Col>
-                <Col xs={6} md={4}>
-                    <label>Category</label>
+                
+                    <br/>
+                    <label>Category </label>
                     <select ref='category' placeholder="category">
                         {categoryOptions}
                     </select>
                 </Col>
-                <Col  xs={6} xsOffset={5}>
-                    <input type='submit' value='Add'/>
+                <Col  xs={3} md={4}>
+                    <input bsStyle="primary" type='submit' value='Add'/>
                 </Col>
             </form>
+            </Panel>
           </Row>
       </Grid>
     );
