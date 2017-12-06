@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './ShoppingList.css';
 import uuid from 'uuid';
-
+import {Grid,Row,Col} from 'react-bootstrap';
 
 class AddToList extends Component {
     constructor(){
@@ -11,7 +11,7 @@ class AddToList extends Component {
         }
     }
     static defaultProps = {
-      categories: ['Dairy', 'Produce', 'Pantry','Sweets','Frozen']
+      categories: [' ','Dairy', 'Produce', 'Pantry','Sweets','Frozen']
   }
   handleSubmit(e){
       e.preventDefault();
@@ -34,22 +34,33 @@ class AddToList extends Component {
         return <option key={category} value={category}>{category}</option>
     });
     return (
-      <div>
-          <h3>add new Item to Shopping List</h3>
-          <form onSubmit={this.handleSubmit.bind(this)}>
-              <div>
-                  <label>Title</label><br/>
-                  <input type='text' ref="title"/>
-              </div>
-              <div>
-                  <label>Category</label><br/>
-                  <select ref='category'>
-                    {categoryOptions}
-                  </select>
-              </div>
-              <input type='submit' value='Submit'/>
-          </form>
-      </div>
+      <Grid>
+          <Row>
+            <Col  xsOffset={2} md={8} mdOffset={5} >
+                <h5>Add new Item to Shopping List</h5>
+            </Col>
+          </Row>
+          <Row>
+            <form inline onSubmit={this.handleSubmit.bind(this)}>
+                <Col xs={6} md={5} mdOffset={3} >
+                    {/* <label>Item</label><br/> */}
+                    <input
+                    type='text' ref="title"
+                    placeholder = "item"
+                    />
+                </Col>
+                <Col xs={6} md={4}>
+                    <label>Category</label>
+                    <select ref='category' placeholder="category">
+                        {categoryOptions}
+                    </select>
+                </Col>
+                <Col  xs={6} xsOffset={5}>
+                    <input type='submit' value='Add'/>
+                </Col>
+            </form>
+          </Row>
+      </Grid>
     );
   }
 }

@@ -53,6 +53,7 @@ componentWillMount(){
 render() {
     return (
       <div >
+        <h1>Shopping List</h1>
         <AddToList addItem={this.handleItem.bind(this)}/>
         <ShoppingList items={this.state.items} onDelete={this.handleDeleteItem.bind(this)}/>
       </div>

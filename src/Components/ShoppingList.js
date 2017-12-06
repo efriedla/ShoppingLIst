@@ -24,7 +24,7 @@ class ShoppingList extends Component {
     }
     return (
       <div className='item'>
-       <h1>My Shopping List</h1>
+       
        <h4>Item</h4>
        <ul>
        {shoppingListItems}
