@@ -68,7 +68,18 @@ componentWillMount(){
       // }
       let items = this.state.items;
       let index = items.find(x => x.id === id);
-      console.log(index )
+      let remove = items.findIndex(x => x.id === id);
+      console.log("items before", items)
+      console.log(" index before", index )
+      console.log(" done before", done)
+      done.push(index);
+      
+      
+      items.splice(remove, 1);
+      this.setState({items:items});
+      console.log("items after", items)
+      console.log("index after", index )
+      console.log("done after", done)
       // if(index('text-decoration') === 'none'){
       //   index('text-decloration', 'line-througn');
       // }
@@ -96,14 +107,15 @@ render() {
         <PageHeader >
         <h1 className='center'>Shopping List</h1>
         </PageHeader>
-        <ShoppingList items={this.state.items} isDone={this.state.done} onDone={this.handleDoneItem.bind(this)} onDelete={this.handleDeleteItem.bind(this)}/>
         <Button bsSize="xsmall" bsStyle="primary" onClick={() => this.setState({ open: !this.state.open })}>
-          Add
+          Add to List
         </Button>
+        <ShoppingList items={this.state.items} isDone={this.state.done} onDone={this.handleDoneItem.bind(this)} onDelete={this.handleDeleteItem.bind(this)}/>
+       
         <Panel collapsible expanded={this.state.open}>
         <AddToList addItem={this.handleItem.bind(this)}/>
         </Panel>
-        <DoneList items={this.state.items} isDone={this.state.done} onDone={this.handleDoneItem.bind(this)} onDelete={this.handleDeleteItem.bind(this)}/>
+        <DoneList items={this.state.done} isDone={this.state.done} onDone={this.handleDoneItem.bind(this)} onDelete={this.handleDeleteItem.bind(this)}/>
 
       </div>
     );
