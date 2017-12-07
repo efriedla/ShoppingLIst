@@ -1,14 +1,26 @@
+
 body{
-  background: #D3CCE3;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  
+  /* background: #D3CCE3;  
+  background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  
+  background: linear-gradient(to right, #E9E4F0, #D3CCE3); 
+   */
+}
+html { 
+  background: url('https://static.pexels.com/photos/139312/pexels-photo-139312.jpeg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 .list{
-  background: #D3CCE3;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  
+  /* background: #D3CCE3;  
+  background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  
+  background: linear-gradient(to right, #E9E4F0, #D3CCE3);  */
+  background: url('https://static.pexels.com/photos/139312/pexels-photo-139312.jpeg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 .center{
     text-align: center;
@@ -21,11 +33,12 @@ body{
 .startButton{
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 45%;
   z-index: -1;
-  background: #D3CCE3;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  width: 100px;  
+   width: 100px;  
+   background: #000428;  /* fallback for old browsers */
+   background: -webkit-linear-gradient(to right, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
+   background: linear-gradient(to right, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;   
 }
 

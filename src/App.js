@@ -113,7 +113,7 @@ render() {
       <div className='list'>
       <Header/>
         <Button className='startButton' bsSize="small"  onClick={() => this.setState({ start: !this.state.start })}>
-          Start
+          Get Started
         </Button>
         <Panel className="list" collapsible expanded={this.state.start}>
         

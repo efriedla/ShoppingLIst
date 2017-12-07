@@ -15,3 +15,8 @@ input{
     background-color: #efefef;
     text-align: center;
   }
+  .pageHead{
+      position: relative;
+      margin-top: -25px;
+      padding: 40px;
+  }
