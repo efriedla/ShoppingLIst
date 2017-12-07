@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import uuid from 'uuid';
-import $ from 'jquery';
+// import $ from 'jquery';
 import './App.css';
 import {PageHeader,Panel,Button} from 'react-bootstrap';
 import ShoppingList from './Components/ShoppingList';
 import AddToList from './Components/AddToList';
+import DoneList from './Components/DoneList';
 
 class App extends Component {
   constructor(props){
@@ -23,17 +24,20 @@ getItems(){
       {
           id:uuid.v4(),
           title: 'Bread',
-          category: 'Pantry'
+          category: 'Pantry',
+          done: false
       },
       {
           id:uuid.v4(),
           title: 'Milk',
-          category: 'Dairy'
+          category: 'Dairy',
+          done: false
     },
     {
           id:uuid.v4(),
           title: 'Apples',
-          category: 'Produce'
+          category: 'Produce',
+          done: true
     }
   ]});
 
@@ -63,7 +67,12 @@ componentWillMount(){
       //     style = {textDecoration: 'line-through'}
       // }
       let items = this.state.items;
-      let index = items.findIndex(x => x.id === id);
+      let index = items.find(x => x.id === id);
+      console.log(index )
+      // if(index('text-decoration') === 'none'){
+      //   index('text-decloration', 'line-througn');
+      // }
+
       // let isDone = item.find(function(item){
       //   let found = (item.id === id);
       //   console.log(found)
@@ -72,9 +81,12 @@ componentWillMount(){
       // if(isDone === true){
       //   style = {textDecoration: 'line-through'}
       // }
-      done.push(index, 1);
-      this.setState({items:items});
-      console.log(done )
+      // done.push(index, 1);
+      // this.setState({items:items});
+      
+
+      // 1 get id
+      // 2 match id to items
 
     }  
 render() {
@@ -91,6 +103,8 @@ render() {
         <Panel collapsible expanded={this.state.open}>
         <AddToList addItem={this.handleItem.bind(this)}/>
         </Panel>
+        <DoneList items={this.state.items} isDone={this.state.done} onDone={this.handleDoneItem.bind(this)} onDelete={this.handleDeleteItem.bind(this)}/>
+
       </div>
     );
   }

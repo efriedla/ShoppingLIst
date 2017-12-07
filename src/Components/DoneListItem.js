@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import './ShoppingList.css';
+import './DoneList.css';
 import {ListGroupItem} from 'react-bootstrap';
 
 
 
-class ShoppingListItem extends Component {
+class DoneListItem extends Component {
     deleteItem(id){
         this.props.onDelete(id);
     }
@@ -18,7 +18,7 @@ class ShoppingListItem extends Component {
        
       return (
         <ListGroupItem className='item'>
-         <span >{this.props.item.title}
+         <span className='doneListItem' >{this.props.item.title}
             - 
           {this.props.item.category}</span> 
           <a href='#' 
@@ -35,4 +35,4 @@ class ShoppingListItem extends Component {
     }
   }
 
-export default ShoppingListItem;
+export default DoneListItem;
