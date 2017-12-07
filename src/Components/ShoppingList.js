@@ -3,10 +3,14 @@ import React, { Component } from 'react';
 // import './Course.css';
 import ShoppingListItem from './ShoppingListItem';
 // import ShoppingListAdd from './ShoppingListAdd';
+import {ListGroup} from 'react-bootstrap';
 
 class ShoppingList extends Component {
   deleteItem(id){
       this.props.onDelete(id)
+  }
+  doneItem(id){
+    this.props.onDone(id)
   }
         
   render() {
@@ -18,7 +22,7 @@ class ShoppingList extends Component {
       shoppingListItems = this.props.items.map(item => {
         //console.log(items);
         return (
-            <ShoppingListItem onDelete={this.deleteItem.bind(this)} key={item.title} item={item} />
+            <ShoppingListItem onDone={this.doneItem.bind(this)} onDelete={this.deleteItem.bind(this)} key={item.title} item={item} />
         );
       });
     }
@@ -26,9 +30,9 @@ class ShoppingList extends Component {
       <div className='item'>
        
        <h4>Item</h4>
-       <ul>
+       <ListGroup>
        {shoppingListItems}
-       </ul>
+       </ListGroup>
        
       </div>
     );

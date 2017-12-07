@@ -11,14 +11,16 @@ class AddToList extends Component {
         }
     }
     static defaultProps = {
-      categories: [' ','Dairy', 'Produce', 'Pantry','Sweets','Frozen']
+      categories: ['','Dairy', 'Produce', 'Pantry','Sweets','Frozen']
   }
   handleSubmit(e){
       e.preventDefault();
     //   console.log(this.refs.title.value);
     if(this.refs.title.value === ''){
         alert('title is required');
-    } else{
+    } else if(this.refs.category.value === ''){
+        alert('category is required');
+    }else{
         this.setState({newItem:{
             id: uuid.v4(),
             title: this.refs.title.value,
@@ -35,15 +37,15 @@ class AddToList extends Component {
     });
     return (
       <Grid>
-          <Row>
+          {/* <Row>
             <Col   md={8}  >
                <Well><h5 className='center'>Add new Item to Shopping List</h5></Well> 
             </Col>
-          </Row>
+          </Row> */}
           <Row>
-              <Panel>
+           
             <form inline onSubmit={this.handleSubmit.bind(this)}>
-                <Col xs={9} md={5} mdOffset={3} >
+                 <Col xs={9} md={5} mdOffset={3} >
                     <label>Item </label>
                     <input
                     type='text' ref="title"
@@ -56,12 +58,14 @@ class AddToList extends Component {
                         {categoryOptions}
                     </select>
                 </Col>
+            
                 <Col  xs={3} md={4}>
-                    <input bsStyle="primary" type='submit' value='Add'/>
+                    <input bsSize="xsmall" bsStyle="primary" type='submit' value='+'/>
                 </Col>
             </form>
-            </Panel>
+            
           </Row>
+          <hr/>
       </Grid>
     );
   }
