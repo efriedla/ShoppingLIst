@@ -27,7 +27,7 @@ class ShoppingList extends Component {
       });
     }
     return (
-      <div className='item'>
+      <div className='item '>
        
        <h4>Item</h4>
        <ListGroup>

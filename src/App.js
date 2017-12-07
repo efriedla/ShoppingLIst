@@ -6,6 +6,7 @@ import {PageHeader,Panel,Button} from 'react-bootstrap';
 import ShoppingList from './Components/ShoppingList';
 import AddToList from './Components/AddToList';
 import DoneList from './Components/DoneList';
+import Footer from './Components/Footer';
 
 class App extends Component {
   constructor(props){
@@ -14,6 +15,7 @@ class App extends Component {
         items: [],
         open: false,
         active: false,
+        start: false,
         done: []
         
     }
@@ -107,20 +109,27 @@ componentWillMount(){
 render() {
   
     return (
-      <div >
+      <div className='list'>
+        <Button className='startButton' bsSize="small"  onClick={() => this.setState({ start: !this.state.start })}>
+          Start
+        </Button>
+        <Panel className="list" collapsible expanded={this.state.start}>
+        
         <PageHeader >
-        <h1 className='center'>Shopping List</h1>
+        <h1 className='center  '>Shopping List</h1>
         </PageHeader>
         <Button bsSize="xsmall" bsStyle="primary" onClick={() => this.setState({ open: !this.state.open })}>
           Add to List
         </Button>
-        <ShoppingList items={this.state.items}  onDone={this.handleDoneItem.bind(this)} onDelete={this.handleDeleteItem.bind(this)}/>
+        <ShoppingList className="list" items={this.state.items}  onDone={this.handleDoneItem.bind(this)} onDelete={this.handleDeleteItem.bind(this)}/>
        
         <Panel collapsible expanded={this.state.open}>
         <AddToList addItem={this.handleItem.bind(this)}/>
         </Panel>
         <DoneList items={this.state.done}  onDone={this.handleOnItem.bind(this)} onDelete={this.handleDeleteDoneItem.bind(this)}/>
-
+        </Panel>
+        
+        <Footer />
       </div>
     );
   }
