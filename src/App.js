@@ -7,6 +7,7 @@ import ShoppingList from './Components/ShoppingList';
 import AddToList from './Components/AddToList';
 import DoneList from './Components/DoneList';
 import Footer from './Components/Footer';
+import Header from './Components/Header';
 
 class App extends Component {
   constructor(props){
@@ -110,6 +111,7 @@ render() {
   
     return (
       <div className='list'>
+      <Header/>
         <Button className='startButton' bsSize="small"  onClick={() => this.setState({ start: !this.state.start })}>
           Start
         </Button>

@@ -4,17 +4,17 @@ import './ShoppingList.css';
 
 
 
-class Footer extends Component {
+export default class Header extends Component {
   
           
     render() { 
         //the delete will get pushed up two componentes
        
       return (
-        <div class="footer">Created on December 7 2017.
+        <div className="pageHead">
+        <h1 className="center">Welcome to my React ShoppingList </h1>
         </div>
       );
     }
   }
 
-export default Footer;

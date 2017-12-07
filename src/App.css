@@ -21,7 +21,7 @@ body{
 .startButton{
   position: absolute;
   top: 50%;
-  left: 40%;
+  left: 50%;
   z-index: -1;
   background: #D3CCE3;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  /* Chrome 10-25, Safari 5.1-6 */
