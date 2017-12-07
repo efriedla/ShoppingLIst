@@ -59,45 +59,43 @@ componentWillMount(){
       items.splice(index, 1);
       this.setState({items:items});
     }  
-    handleDoneItem(id){
-     var done = this.state.done;
-      // this.setState({done: !this.state.done});
+    handleOnItem(id){
+      var done = this.state.done;
       var style = {textDecoration: 'none'};
-      // if (done === true) {
-      //     style = {textDecoration: 'line-through'}
-      // }
       let items = this.state.items;
-      let index = items.find(x => x.id === id);
-      let remove = items.findIndex(x => x.id === id);
+      let index = done.find(x => x.id === id);
+      let remove = done.findIndex(x => x.id === id);
       console.log("items before", items)
       console.log(" index before", index )
       console.log(" done before", done)
+      items.push(index);
+      
+      
+      done.splice(remove, 1);
+      this.setState({items:items});
+      this.setState({done:done});
+      console.log("items after", items)
+      console.log("index after", index )
+      console.log("done after", done)
+      
+    }
+    handleDoneItem(id){
+     var done = this.state.done;
+      var style = {textDecoration: 'none'};
+    
+      let items = this.state.items;
+      let index = items.find(x => x.id === id);
+      let remove = items.findIndex(x => x.id === id);
+  
       done.push(index);
       
       
       items.splice(remove, 1);
       this.setState({items:items});
+  
       console.log("items after", items)
       console.log("index after", index )
       console.log("done after", done)
-      // if(index('text-decoration') === 'none'){
-      //   index('text-decloration', 'line-througn');
-      // }
-
-      // let isDone = item.find(function(item){
-      //   let found = (item.id === id);
-      //   console.log(found)
-
-      // });
-      // if(isDone === true){
-      //   style = {textDecoration: 'line-through'}
-      // }
-      // done.push(index, 1);
-      // this.setState({items:items});
-      
-
-      // 1 get id
-      // 2 match id to items
 
     }  
 render() {
@@ -110,12 +108,12 @@ render() {
         <Button bsSize="xsmall" bsStyle="primary" onClick={() => this.setState({ open: !this.state.open })}>
           Add to List
         </Button>
-        <ShoppingList items={this.state.items} isDone={this.state.done} onDone={this.handleDoneItem.bind(this)} onDelete={this.handleDeleteItem.bind(this)}/>
+        <ShoppingList items={this.state.items}  onDone={this.handleDoneItem.bind(this)} onDelete={this.handleDeleteItem.bind(this)}/>
        
         <Panel collapsible expanded={this.state.open}>
         <AddToList addItem={this.handleItem.bind(this)}/>
         </Panel>
-        <DoneList items={this.state.done} isDone={this.state.done} onDone={this.handleDoneItem.bind(this)} onDelete={this.handleDeleteItem.bind(this)}/>
+        <DoneList items={this.state.done}  onDone={this.handleOnItem.bind(this)} onDelete={this.handleDeleteItem.bind(this)}/>
 
       </div>
     );

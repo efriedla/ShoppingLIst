@@ -8,7 +8,7 @@ class DoneListItem extends Component {
     deleteItem(id){
         this.props.onDelete(id);
     }
-    doneItem(id){
+    onItem(id){
         this.props.onDone(id);
         
     }
@@ -18,13 +18,14 @@ class DoneListItem extends Component {
        
       return (
         <ListGroupItem className='item'>
+        <a href='#' 
+              onClick={this.onItem.bind(this, this.props.item.id)}>
+                  &#x2705;
+          </a>
          <span className='doneListItem' >{this.props.item.title}
             - 
           {this.props.item.category}</span> 
-          <a href='#' 
-              onClick={this.doneItem.bind(this, this.props.item.id)}>
-                   Done 
-          </a>
+          
            <a href='#' 
               onClick={this.deleteItem.bind(this, this.props.item.id)}>
                    X 

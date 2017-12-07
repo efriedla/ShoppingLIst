@@ -18,13 +18,14 @@ class ShoppingListItem extends Component {
        
       return (
         <ListGroupItem className='item'>
+         <a href='#' 
+              onClick={this.doneItem.bind(this, this.props.item.id)}>
+                  &#x2705;
+          </a>
          <span >{this.props.item.title}
             - 
           {this.props.item.category}</span> 
-          <a href='#' 
-              onClick={this.doneItem.bind(this, this.props.item.id)}>
-                   Done 
-          </a>
+          
            <a href='#' 
               onClick={this.deleteItem.bind(this, this.props.item.id)}>
                    X 

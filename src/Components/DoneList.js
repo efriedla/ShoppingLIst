@@ -9,7 +9,7 @@ class DoneList extends Component {
   deleteItem(id){
       this.props.onDelete(id)
   }
-  doneItem(id){
+  onItem(id){
     this.props.onDone(id)
   }
         
@@ -22,14 +22,14 @@ class DoneList extends Component {
       doneListItems = this.props.items.map(item => {
         //console.log(items);
         return (
-            <DoneListItem onDone={this.doneItem.bind(this)} onDelete={this.deleteItem.bind(this)} key={item.title} item={item} />
+            <DoneListItem onDone={this.onItem.bind(this)} onDelete={this.deleteItem.bind(this)} key={item.title} item={item} />
         );
       });
     }
     return (
       <div className='item'>
        
-       <h4>Item</h4>
+       <h4>Items bought</h4>
        <ListGroup >
        {doneListItems}
        </ListGroup>
