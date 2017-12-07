@@ -59,6 +59,12 @@ componentWillMount(){
       items.splice(index, 1);
       this.setState({items:items});
     }  
+    handleDeleteDoneItem(id){
+      let done = this.state.done;
+      let index = done.findIndex(x => x.id === id);
+      done.splice(index, 1);
+      this.setState({done:done});
+    } 
     handleOnItem(id){
       var done = this.state.done;
       var style = {textDecoration: 'none'};
@@ -113,7 +119,7 @@ render() {
         <Panel collapsible expanded={this.state.open}>
         <AddToList addItem={this.handleItem.bind(this)}/>
         </Panel>
-        <DoneList items={this.state.done}  onDone={this.handleOnItem.bind(this)} onDelete={this.handleDeleteItem.bind(this)}/>
+        <DoneList items={this.state.done}  onDone={this.handleOnItem.bind(this)} onDelete={this.handleDeleteDoneItem.bind(this)}/>
 
       </div>
     );
