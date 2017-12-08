@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './ShoppingList.css';
-import {ListGroupItem} from 'react-bootstrap';
+import {ListGroupItem,ButtonToolbar} from 'react-bootstrap';
 
 
 
@@ -18,10 +18,12 @@ class ShoppingListItem extends Component {
        
       return (
         <ListGroupItem className='item'>
-         <a href='#' 
-              onClick={this.doneItem.bind(this, this.props.item.id)}>
-                  &#x2705;
-          </a>
+       
+         <input type="checkbox"
+              onClick={this.doneItem.bind(this, this.props.item.id)}
+                  
+          />
+        
          <span >{this.props.item.title}
             - 
           {this.props.item.category}</span> 
